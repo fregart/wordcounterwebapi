@@ -33,21 +33,21 @@ public class HemtestController {
        * Create a map and add all words then
        * check if there are are any dublets or more
        */
-      Map<String, Integer> tmp = new TreeMap<>();        
+      Map<String, Integer> listOfWords = new TreeMap<>();        
 
       String word_arr[] = str.split(" ");
       
       for (int i = 0; i < word_arr.length; i++) {
         // Add +1 if word occures more then one
-        if (tmp.containsKey(word_arr[i])) {
-          tmp.put(word_arr[i], tmp.get(word_arr[i])+1);
+        if (listOfWords.containsKey(word_arr[i])) {
+          listOfWords.put(word_arr[i], listOfWords.get(word_arr[i])+1);
           
         } else {
-          tmp.put(word_arr[i], 1);
+          listOfWords.put(word_arr[i], 1);
         }
       }
 
-      return tmp;
+      return listOfWords;
     
     }
 } // end class HemtestController
