@@ -30,12 +30,26 @@ public class HemtestController {
     public Map<String, Integer> countBody(@RequestBody String str) {
 
       /**
+       * Split the string into an array of words
+       */
+      String word_arr[] = str.split(" ");
+
+      /**
+       * Capitalize the first character of each
+       * word in the string to prevent duplicates of the same
+       * word with different case
+       */
+      for (int i = 0; i < word_arr.length; i++) {
+        {
+          word_arr[i] = word_arr[i].substring(0, 1).toUpperCase() + word_arr[i].substring(1).toLowerCase();
+        }
+      }
+
+      /**
        * Create a map and add all words then
        * check if there are are any dublets or more
        */
       Map<String, Integer> listOfWords = new TreeMap<>();        
-
-      String word_arr[] = str.split(" ");
       
       for (int i = 0; i < word_arr.length; i++) {
         // Add +1 if word occures more then one
